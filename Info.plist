@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Simon Fransson</string>
+	<key>Builder Version</key>
+	<string>8536.29.13</string>
+	<key>CFBundleDisplayName</key>
+	<string>SR HTML5 Player</string>
+	<key>CFBundleIdentifier</key>
+	<string>se.dessibelle.srplayer</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Global Page</key>
+		<string>player.html</string>
+	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>jquery-2.0.0.min.js</string>
+				<string>player.js</string>
+			</array>
+		</dict>
+	</dict>
+	<key>Description</key>
+	<string>HTML5 audio player for sverigesradio.se, eliminating the need for Flash or an external players</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Allowed Domains</key>
+			<array>
+				<string>*.sverigesradio.se</string>
+				<string>sverigesradio.se</string>
+			</array>
+			<key>Level</key>
+			<string>Some</string>
+		</dict>
+	</dict>
+	<key>Website</key>
+	<string>http://dessibelle.se</string>
+</dict>
+</plist>
