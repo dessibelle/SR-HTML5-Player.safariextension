@@ -1,7 +1,8 @@
 (function() {
   $(function() {
-    var create_player, links, parse_entry, selector;
+    var create_player, links, parse_entry, processedClass, selector;
 
+    processedClass = 'sr-player-processed';
     parse_entry = function(entry) {
       var abstract, duration, title, url, _ref, _ref1, _ref2, _ref3;
 
@@ -31,7 +32,7 @@
       audio.appendChild(source);
       return audio;
     };
-    selector = "a[href*='codingformat=.m4a'][href*='metafile=asx']";
+    selector = "a[href*='codingformat=.m4a'][href*='metafile=asx']:not(" + processedClass + ")";
     links = $(selector);
     return $(links).click(function(e) {
       var link_elem;
@@ -39,14 +40,17 @@
       link_elem = this;
       e.preventDefault();
       $.get($(this).attr("href"), function(data) {
-        var entry, player, xml;
+        var css_props, entry, inner, player, xml;
 
         xml = $.parseXML(data);
         entry = parse_entry($(xml).find('entry:first'));
         if (entry != null ? entry.url : void 0) {
           player = create_player(entry.url);
           if (player) {
-            $(player).css({
+            $.each($('audio'), function() {
+              return this.pause();
+            });
+            css_props = {
               width: $(link_elem).css('width'),
               height: $(link_elem).css('height'),
               position: $(link_elem).css('position'),
@@ -56,12 +60,20 @@
               left: $(link_elem).css('left'),
               float: $(link_elem).css('float'),
               display: $(link_elem).css('display'),
+              margin: $(link_elem).css('margin')
+            };
+            $(link_elem).wrap('<span class="sr-player-wrapper" />');
+            $(link_elem).wrap('<span class="sr-player-inner" />');
+            $(link_elem).addClass(processedClass);
+            inner = $(link_elem).parent();
+            $(inner).css(css_props);
+            $(inner).append(player);
+            $(player).css({
+              width: $(link_elem).css('width'),
+              height: $(link_elem).css('height'),
               margin: $(link_elem).css('margin'),
-              padding: $(link_elem).css('padding'),
-              color: $(link_elem).css('color'),
-              background: $(link_elem).css('background')
+              padding: $(link_elem).css('padding')
             });
-            $(link_elem).replaceWith(player);
             return player.play();
           }
         }

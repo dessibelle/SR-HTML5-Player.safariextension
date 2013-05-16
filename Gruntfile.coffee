@@ -9,6 +9,13 @@ module.exports = (grunt) ->
                 files:
                     'player.js': ['src/coffee/player.coffee']
 
+        less:
+            main:
+                options:
+                    paths: ["less"],
+                    yuicompress: true
+                files:
+                    "player.css" : "src/less/player.less"
 
         # uglify:
         #     main:
@@ -19,17 +26,18 @@ module.exports = (grunt) ->
 
         watch:
             watch:
-                files: ['src/coffee/*.coffee'],
+                files: ['src/coffee/*.coffee', 'src/less/*.less'],
                 tasks: ['default'],
                 # options:
                 #     nospawn: true
 
 
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-watch');
     # grunt.loadNpmTasks('grunt-contrib-concat');
     # grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('default', ['coffee'])
+    grunt.registerTask('default', ['less', 'coffee'])
     # grunt.registerTask('dist', ['default', 'concat', 'uglify'])
 

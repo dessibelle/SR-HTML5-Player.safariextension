@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0b1</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>Chrome</key>
@@ -31,6 +31,10 @@
 				<string>player.js</string>
 			</array>
 		</dict>
+		<key>Stylesheets</key>
+		<array>
+			<string>player.css</string>
+		</array>
 	</dict>
 	<key>Description</key>
 	<string>HTML5 audio player for sverigesradio.se, eliminating the need for Flash or an external players.</string>

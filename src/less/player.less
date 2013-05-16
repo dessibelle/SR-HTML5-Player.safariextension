@@ -1,0 +1,30 @@
+
+.sr-player-wrapper {
+
+    .sr-player-inner {
+
+        position: relative;
+
+        a {
+            position: relative;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            top: auto;
+        }
+
+        audio {
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    &:hover {
+
+        audio {
+            z-index: 10;
+        }
+    }
+}

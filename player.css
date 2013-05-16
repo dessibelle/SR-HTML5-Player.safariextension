@@ -1,0 +1,1 @@
+.sr-player-wrapper .sr-player-inner{position:relative}.sr-player-wrapper .sr-player-inner a{position:relative;left:auto;right:auto;bottom:auto;top:auto}.sr-player-wrapper .sr-player-inner audio{z-index:-1;position:absolute;top:0;left:0}.sr-player-wrapper:hover audio{z-index:10}
